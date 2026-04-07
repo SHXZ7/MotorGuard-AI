@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0f1e;
+  --navbar: #0d1321;
+  --card: #111827;
+  --line: #1f2937;
+  --accent: #3b82f6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --text: #f9fafb;
+  --text-secondary: #9ca3af;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.root {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 56px;
+  background: var(--navbar);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar-inner {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.brand-mark {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #dbeafe;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-tab {
+  position: relative;
+  padding: 6px 10px 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.nav-tab:hover {
+  color: var(--text);
+}
+
+.nav-tab.active {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-action-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  background: transparent;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.nav-action-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.nav-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid #23324a;
+  background: #1f4d9e;
+  color: #e0ecff;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.metric-card,
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 150ms ease;
+}
+
+.metric-card:hover,
+.card:hover {
+  border-color: var(--accent);
+}
+
+.metric-card {
+  padding: 20px;
+}
+
+.card {
+  padding: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.two-col {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.error-banner {
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #fecaca;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.sensor-value {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (max-width: 1100px) {
+  .navbar-inner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    height: auto;
+  }
+
+  .navbar-inner {
+    padding: 10px 12px;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+
+  .nav-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-content {
+    padding: 20px 12px 28px;
+  }
+}
